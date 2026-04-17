@@ -480,6 +480,53 @@ const SlideProblem = () => (
   </div>
 );
 
+const SlideSecurityTrust = () => (
+  <div className="h-full flex flex-col p-16 bg-slate-50">
+    <div className="max-w-7xl mx-auto w-full h-full flex flex-col">
+      <div className="text-center mb-10">
+        <h2 className="text-5xl font-display font-black mb-3">Securite, confidentialite et confiance</h2>
+        <p className="text-xl text-slate-500 font-medium">Ce qui protege deja AJI DROKA, et ce que nous renforcons en production.</p>
+      </div>
+
+      <div className="grid grid-cols-3 gap-6 flex-1">
+        <div className="bg-white rounded-3xl border border-slate-100 shadow-lg p-7">
+          <h3 className="text-2xl font-display font-bold mb-5 text-medical-blue">1) Ce qui securise deja le prototype</h3>
+          <ul className="space-y-3 text-slate-600 font-medium leading-relaxed">
+            <li>Transmission securisee des donnees via MQTT/TLS</li>
+            <li>Connexion WebSocket securisee (WSS) pour le dashboard</li>
+            <li>Stockage persistant et tracable via Supabase/PostgreSQL</li>
+            <li>Historique horodate des alertes et evenements</li>
+            <li>Separation des espaces metier pour limiter la surcharge et mieux controler l'acces aux informations</li>
+          </ul>
+        </div>
+
+        <div className="bg-white rounded-3xl border border-slate-100 shadow-lg p-7">
+          <h3 className="text-2xl font-display font-bold mb-5 text-medical-teal">2) Principes de protection des donnees</h3>
+          <ul className="space-y-3 text-slate-600 font-medium leading-relaxed">
+            <li>Acces aux donnees selon le profil utilisateur</li>
+            <li>Limitation de l'affichage aux informations utiles</li>
+            <li>Tracabilite des alertes et actions</li>
+            <li>Reduction des faux positifs grace a la validation croisee et a l'IA</li>
+            <li>Conservation structuree des donnees critiques uniquement</li>
+          </ul>
+        </div>
+
+        <div className="bg-white rounded-3xl border border-slate-100 shadow-lg p-7">
+          <h3 className="text-2xl font-display font-bold mb-5 text-indigo-600">3) Ce qui sera renforce en production</h3>
+          <ul className="space-y-3 text-slate-600 font-medium leading-relaxed">
+            <li>Backend securise</li>
+            <li>Authentification reelle avec roles</li>
+            <li>Autorisations fines selon le profil</li>
+            <li>Politique de retention des donnees</li>
+            <li>Conformite RGPD / cadre juridique applicable</li>
+            <li>Infrastructure cloud plus robuste et haute disponibilite</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 const SlideEvolution = () => (
   <div className="h-full flex flex-col p-20 bg-slate-50">
     <h2 className="text-6xl font-display font-black mb-16 text-center uppercase tracking-tighter">Evolution & Perspectives</h2>
@@ -844,6 +891,7 @@ export default function App() {
     { id: 'dash-fam', component: <SlideDashboardFamily /> },
     { id: 'tech-stack', component: <SlideTechStack /> },
     { id: 'challenges', component: <SlideChallenges /> },
+    { id: 'security-trust', component: <SlideSecurityTrust /> },
     { id: 'evolution', component: <SlideEvolution /> },
     { id: 'conc', component: <SlideConclusion /> }
   ];
