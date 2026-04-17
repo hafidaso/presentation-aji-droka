@@ -12,9 +12,7 @@ import {
   Users, 
   AlertTriangle,
   Zap,
-  Cpu,
   Database,
-  Smartphone,
   MessageCircle,
   Clock,
   ArrowRight,
@@ -249,58 +247,6 @@ const SlideStats = () => {
   );
 };
 
-const SlideArchitecture = () => {
-  const steps = [
-    { title: "Saisie", icon: Activity, desc: "Signaux Vitaux & PIR", color: "bg-orange-500" },
-    { title: "Traitement", icon: Cpu, desc: "maker board & MQTT", color: "bg-medical-blue" },
-    { title: "Intelligence", icon: Zap, desc: "Fusion AI + Gemini", color: "bg-medical-teal" },
-    { title: "Restitution", icon: Smartphone, desc: "Dashboard React", color: "bg-indigo-600" }
-  ];
-
-  return (
-    <div className="h-full flex flex-col items-center justify-center p-20">
-      <h2 className="text-5xl font-display font-bold mb-20">Architecture Flux de Données</h2>
-      
-      <div className="flex items-center gap-4 w-full max-w-6xl">
-        {steps.map((step, i) => (
-          <div key={i} className="flex-1 flex items-center relative">
-            <motion.div 
-              initial={{ scale: 0.8, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              transition={{ delay: i * 0.2 }}
-              className="w-full flex flex-col items-center"
-            >
-              <div className={`w-24 h-24 rounded-3xl ${step.color} text-white flex items-center justify-center shadow-2xl mb-6 relative z-10`}>
-                <step.icon size={40} />
-              </div>
-              <h3 className="font-display font-bold text-xl mb-2">{step.title}</h3>
-              <p className="text-slate-500 font-medium">{step.desc}</p>
-            </motion.div>
-            
-            {i < steps.length - 1 && (
-              <div className="absolute top-12 left-1/2 w-full h-1 bg-slate-100 -z-0">
-                <motion.div 
-                  initial={{ width: 0 }}
-                  whileInView={{ width: '100%' }}
-                  transition={{ delay: (i + 0.5) * 0.2, duration: 0.5 }}
-                  className="h-full bg-medical-blue"
-                />
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-      
-      <div className="mt-24 grid grid-cols-4 gap-6 w-full max-w-6xl">
-        <div className="p-6 rounded-2xl bg-slate-50 border border-slate-100 text-sm font-mono text-slate-500">BME280, MAX30102, PIR</div>
-        <div className="p-6 rounded-2xl bg-slate-50 border border-slate-100 text-sm font-mono text-slate-500">HiveMQ TLS, MQTT-JS</div>
-        <div className="p-6 rounded-2xl bg-slate-50 border border-slate-100 text-sm font-mono text-slate-500">Supabase, Sheets, Gemini</div>
-        <div className="p-6 rounded-2xl bg-slate-50 border border-slate-100 text-sm font-mono text-slate-500">Vite, Tailwind, Recharts</div>
-      </div>
-    </div>
-  );
-};
-
 const CheckIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
     <polyline points="20 6 9 17 4 12"></polyline>
@@ -357,73 +303,19 @@ const SlideDashboardFamily = () => (
           ))}
         </div>
 
-        <motion.div 
-          initial={{ rotateY: -15, scale: 0.9, opacity: 0 }}
+        <motion.div
+          initial={{ rotateY: -8, scale: 0.95, opacity: 0 }}
           whileInView={{ rotateY: 0, scale: 1, opacity: 1 }}
           className="relative"
         >
-          {/* Mockup of mobile view */}
-          <div className="w-[340px] h-[680px] bg-slate-900 mx-auto rounded-[60px] p-4 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] border-[8px] border-slate-800">
-            <div className="w-full h-full bg-white rounded-[40px] overflow-hidden flex flex-col">
-              <div className="bg-medical-blue p-8 text-white">
-                <div className="flex justify-between items-center mb-6">
-                  <span className="text-xs font-bold uppercase tracking-widest opacity-80">AJI DROKA FAMILY</span>
-                  <div className="w-2 h-2 bg-green-400 rounded-full" />
-                </div>
-                <h4 className="text-2xl font-bold flex items-center gap-2">Bonjour Amina 👋</h4>
-                <p className="text-sm opacity-80 mt-1">L'état de votre maman</p>
-              </div>
-              
-              <div className="p-6 flex-1 space-y-4">
-                <div className="bg-green-50 p-6 rounded-3xl border border-green-100 flex flex-col items-center text-center">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-4 animate-bounce">
-                    <ShieldCheck size={32} />
-                  </div>
-                  <h5 className="text-xl font-black text-green-800">TOUT VA BIEN</h5>
-                  <p className="text-xs font-medium text-green-600/80">Analysé il y a 2 min</p>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-slate-50 p-4 rounded-2xl">
-                    <Heart className="text-red-500 mb-2" size={16} />
-                    <span className="block text-xl font-bold">72 BPM</span>
-                    <span className="text-[10px] text-slate-400 font-bold uppercase">Cœur</span>
-                  </div>
-                  <div className="bg-slate-50 p-4 rounded-2xl">
-                    <Activity className="text-blue-500 mb-2" size={16} />
-                    <span className="block text-xl font-bold">Actif</span>
-                    <span className="text-[10px] text-slate-400 font-bold uppercase">Mouvement</span>
-                  </div>
-                </div>
-
-                <div className="bg-medical-blue/5 p-4 rounded-2xl border border-medical-blue/10">
-                   <p className="text-xs font-medium italic text-slate-600">
-                    "Maman a pris son petit déjeuner. Elle est dans le salon en ce moment."
-                   </p>
-                </div>
-                
-                <button className="w-full py-4 bg-medical-blue text-white rounded-2xl font-bold shadow-lg shadow-medical-blue/20 flex items-center justify-center gap-2 mt-4 hover:scale-105 transition-transform">
-                  <MessageCircle size={18} /> Appeler Maman
-                </button>
-              </div>
-            </div>
+          <div className="bg-slate-900 mx-auto rounded-[44px] p-3 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] border-[6px] border-slate-800 max-w-[380px]">
+            <img
+              src="/espace-senior-famille-telegram.png"
+              alt="Notifications famille AJI DROKA sur Telegram"
+              className="w-full h-auto rounded-[34px] object-contain"
+              referrerPolicy="no-referrer"
+            />
           </div>
-          
-          {/* Floating notification */}
-          <motion.div 
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
-            className="absolute -right-10 top-1/2 bg-white p-4 rounded-2xl shadow-2xl border border-slate-100 w-64"
-          >
-            <div className="flex items-center gap-3 mb-2">
-              <div className="p-2 bg-green-500 rounded-lg text-white">
-                <Smartphone size={16} />
-              </div>
-              <span className="font-bold text-xs uppercase text-slate-400">Notification WhatsApp</span>
-            </div>
-            <p className="text-sm font-medium">"Alerte : Inactivité prolongée détectée chez Maman (Salle de bain - 30 min). Demander de l'aide ?"</p>
-          </motion.div>
         </motion.div>
       </div>
     </div>
@@ -942,7 +834,6 @@ export default function App() {
     { id: 'stats', component: <SlideStats /> },
     { id: 'problem', component: <SlideProblem /> },
     { id: 'value', component: <SlideValueAdded /> },
-    { id: 'arch', component: <SlideArchitecture /> },
     { id: 'arch-img', component: <SlideArchitectureImage /> },
     { id: 'phase-humain', component: <SlidePhaseCapteurHumain /> },
     { id: 'phase-mouvement', component: <SlidePhaseMouvementMaison /> },
