@@ -795,7 +795,7 @@ const SlidePhaseAnomaliesMateriel = () => (
     >
       <h2 className="text-5xl font-display font-black mb-4 text-medical-blue">Phase : Diagnostic Système</h2>
       <p className="text-xl text-slate-500 font-medium mb-12 max-w-3xl">
-        Une surveillance technique rigoureuse (Watchdog) pour garantir la continuité du service et la fiabilité totale de l'infrastructure IoT.
+        Une surveillance technique rigoureuse pour garantir la continuité du service et la fiabilité totale de l'infrastructure IoT.
       </p>
       <div className="bg-slate-50 p-8 rounded-[40px] border border-slate-100 shadow-2xl w-full flex justify-center overflow-hidden">
         <img src="/BPMN.PNG" alt="Détection Anomalies Matériel" className="max-h-[550px] w-auto object-contain rounded-2xl shadow-inner" referrerPolicy="no-referrer" />
