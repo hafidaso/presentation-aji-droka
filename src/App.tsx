@@ -626,7 +626,7 @@ const SlideAlertLogic = () => (
             <h3 className="text-2xl font-display font-bold mb-4">{item.level}</h3>
             <p className="text-slate-500 font-medium mb-8 flex-1">{item.desc}</p>
             <div className="text-xs font-mono text-slate-400 bg-slate-50 p-3 rounded-xl">
-              ACTION: {i < 2 ? "Log simple" : "Notification + Slack"}
+              ACTION: {i < 2 ? "Log simple" : "Notification + telegram"}
             </div>
           </div>
         </motion.div>
@@ -842,7 +842,6 @@ export default function App() {
     { id: 'pir', component: <SlidePIRDetails /> },
     { id: 'alerts', component: <SlideAlertLogic /> },
     { id: 'dash-fam', component: <SlideDashboardFamily /> },
-    { id: 'fusion', component: <SlideFusionAI /> },
     { id: 'tech-stack', component: <SlideTechStack /> },
     { id: 'challenges', component: <SlideChallenges /> },
     { id: 'evolution', component: <SlideEvolution /> },
