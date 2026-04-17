@@ -873,6 +873,9 @@ const SlideDashboardVitalSigns = () => (
 
 export default function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const isPrintMode =
+    typeof window !== 'undefined' &&
+    new URLSearchParams(window.location.search).get('print') === '1';
 
   const slides = [
     { id: 'cover', component: <SlideCover /> },
@@ -914,6 +917,20 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [nextSlide]);
 
+  if (isPrintMode) {
+    return (
+      <div className="min-h-screen bg-medical-bg text-slate-900 font-sans print-mode">
+        <div className="print-deck">
+          {slides.map((slide) => (
+            <section key={slide.id} className="print-slide">
+              <div className="print-slide-inner">{slide.component}</div>
+            </section>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="w-screen h-screen bg-medical-bg text-slate-900 overflow-hidden font-sans">
       <AnimatePresence mode="wait">
@@ -929,7 +946,7 @@ export default function App() {
         </motion.div>
       </AnimatePresence>
 
-      <NavigationControl 
+      <NavigationControl
         onPrev={() => setCurrentSlide((prev) => Math.max(prev - 1, 0))}
         onNext={nextSlide}
         current={currentSlide}
@@ -939,10 +956,10 @@ export default function App() {
       {/* Branding logo in top right */}
       <div className="fixed top-8 right-10 z-50 flex items-center gap-4 opacity-80 hover:opacity-100 transition-opacity">
         <div className="flex flex-col items-end">
-          <img 
-            src="/logo.png" 
-            alt="AJI DROKA" 
-            className="h-14 w-auto" 
+          <img
+            src="/logo.png"
+            alt="AJI DROKA"
+            className="h-14 w-auto"
             referrerPolicy="no-referrer"
           />
           <span className="text-[10px] font-bold text-medical-blue uppercase tracking-[0.2em] mt-1">
